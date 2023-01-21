@@ -4,6 +4,8 @@
 
 This project is a [Wails](https://github.com/wailsapp/wails) template based on the [Astro](https://astro.build/).
 
+![wails-astro](https://res.cloudinary.com/dqkglfgx4/image/upload/v1674279127/wails_astro.png)
+
 ## Getting Started
 
 **New Project**:
