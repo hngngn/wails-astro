@@ -1,15 +1,24 @@
-# README
+<h1 align="center">Wails Astro Template</h1>
 
-## About
+## Introductions
 
-About your template
+This project is a [Wails](https://github.com/wailsapp/wails) template based on the [Astro](https://astro.build/).
 
-## Live Development
+## Getting Started
 
-To run in live development mode, run `wails dev` in the project directory. In another terminal, go into the `frontend`
-directory and run `npm run dev`. The frontend dev server will run on http://localhost:34115. Connect to this in your
-browser and connect to your application.
+**New Project**:
 
-## Building
+```
+wails init -n <Your Appname> -t https://github.com/hnggngn/wails-astro -g -ide vscode
+```
 
-To build a redistributable, production mode package, use `wails build`.
+flag description:
+
+-   n - The name of the application to be created
+-   t - Template name, supports built-in template names and third-party templates in the form of hyperlinks
+-   g - Initialise git repository
+-   ide Generate IDE project files
+
+## License
+
+[License MIT](./LICENSE)
