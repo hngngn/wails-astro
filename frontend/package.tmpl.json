@@ -11,15 +11,11 @@
         "preview": "astro preview",
         "astro": "astro"
     },
-    "dependencies": {
-        "astro": "^1.9.0"
-    },
     "devDependencies": {
-        "@astrojs/solid-js": "^1.2.3",
+        "astro": "^1.9.0",
         "@unocss/reset": "^0.48.4",
         "astro-compress": "^1.1.27",
         "astro-fonts-next": "^1.0.5",
-        "solid-js": "^1.4.3",
         "unocss": "^0.48.4"
     }
 }

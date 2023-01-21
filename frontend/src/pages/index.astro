@@ -1,10 +1,103 @@
 ---
-import { Home } from "../components"
 import MainLayout from "../layouts/MainLayout.astro"
 ---
 
+<script>
+    declare global {
+        interface Window {
+            handleOpenURL: (name: string) => void
+        }
+    }
+
+    import { Greet } from "../../wailsjs/go/main/App"
+    import { BrowserOpenURL } from "../../wailsjs/runtime/runtime"
+
+    window.handleOpenURL = (name) => {
+        switch (name) {
+            case "wails":
+                BrowserOpenURL("https://wails.io")
+                break
+            case "astro":
+                BrowserOpenURL("https://docs.astro.build")
+                break
+            case "vscode":
+                BrowserOpenURL("https://code.visualstudio.com")
+                break
+            case "go":
+                BrowserOpenURL("https://marketplace.visualstudio.com/items?itemName=golang.Go")
+                break
+            case "astro-vscode":
+                BrowserOpenURL(
+                    "https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode"
+                )
+                break
+            default:
+                BrowserOpenURL("https://marketplace.visualstudio.com/items?itemName=antfu.unocss")
+                break
+        }
+    }
+
+    const form = document.querySelector("form")!
+    const hello = document.querySelector("#hello")! as HTMLElement
+    const input = document.querySelector("input")!
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault()
+        const msg = await Greet(input?.value)
+        hello.innerText = msg
+        input.value = ""
+    })
+</script>
+
 <MainLayout>
     <main>
-        <Home client:visible />
+        <div class="center-screen">
+            <div class="flex flex-col gap-7">
+                <div class="center gap-10">
+                    <button onclick="handleOpenURL('wails')">
+                        <img
+                            src="/images/wails.svg"
+                            alt="Wails"
+                            class="img hover:(filter-drop-shadow-color-red-200)"
+                        />
+                    </button>
+                    <button onclick="handleOpenURL('astro')">
+                        <img
+                            src="/images/astro.svg"
+                            alt="Astro"
+                            class="img hover:(filter-drop-shadow-color-orange-200)"
+                        />
+                    </button>
+                </div>
+                <div class="font-500 flex gap-5 flex-col">
+                    <h1 class="text-lg">Click on the Wails and Astro logos to learn more.</h1>
+                    <p>
+                        Recommended IDE setup:{" "}
+                        <button class="c-blue-500 font-600" onclick="handleOpenURL('vscode')">
+                            VS Code
+                        </button>{" "}
+                        +{" "}
+                        <button
+                            class="c-orange-500 font-600"
+                            onclick="handleOpenURL('astro-vscode')">
+                            Astro
+                        </button>{" "}
+                        +{" "}
+                        <button class="font-600" onclick="handleOpenURL()"> UnoCSS</button>{" "}
+                        +{" "}
+                        <button class="font-600 c-cyan-500" onclick="handleOpenURL('go')">
+                            Go
+                        </button>
+                    </p>
+                </div>
+                <form class="flex flex-col gap-3 w-18rem self-center">
+                    <input autofocus autocomplete="off" class="input" type="text" />
+                    <button type="submit" class="p-2.5 bg-black rounded-3 color-white">
+                        Greet
+                    </button>
+                </form>
+                <p class="text-center color-red-500 font-600" id="hello"></p>
+            </div>
+        </div>
     </main>
 </MainLayout>
