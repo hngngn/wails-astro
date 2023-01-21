@@ -1,4 +1,4 @@
-module changeme
+module {{.ProjectName}}
 
         go 1.18
 
@@ -28,5 +28,3 @@ module changeme
         golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
         golang.org/x/text v0.3.7 // indirect
         )
-
-        // replace github.com/wailsapp/wails/v2 {{.WailsVersion}} => {{.WailsDirectory}}

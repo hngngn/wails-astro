@@ -1,7 +1,7 @@
 {
-  "name": "Long name",
-  "shortname": "wails-astro",
-  "author": "",
-  "description": "Description of the template",
-  "helpurl": "URL for help with the template, eg homepage"
+    "name": "wails-astr-template",
+    "shortname": "wails-astro",
+    "author": "hnggngn <huyhoang.hngngn@gmail.com>",
+    "description": "Wails with Astro",
+    "helpurl": ""
 }
